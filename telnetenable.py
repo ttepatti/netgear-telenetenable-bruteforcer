@@ -59,8 +59,8 @@ def GeneratePayload(mac, username, password=""):
   assert(len(username) <= 0x10)
   just_username = username.ljust(0x10, "\x00")
   
-  assert(len(password) <= 0x10)
-  just_password = password.ljust(0x10, "\x00")
+  assert(len(password) <= 0x18)
+  just_password = password.ljust(0x18, "\x00")
 
   cleartext = (just_mac + just_username + just_password).ljust(0x70, '\x00')
   md5_key = MD5.new(cleartext).digest()
@@ -73,7 +73,7 @@ def GeneratePayload(mac, username, password=""):
 
 
 def SendPayload(ip, payload):
-  for res in socket.getaddrinfo(ip, TELNET_PORT, socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_IP):
+  for res in socket.getaddrinfo(ip, TELNET_PORT, socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_IP):
     af, socktype, proto, canonname, sa = res
     try:
       s = socket.socket(af, socktype, proto)
