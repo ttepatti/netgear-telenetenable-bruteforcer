@@ -59,8 +59,8 @@ def GeneratePayload(mac, username, password=""):
   assert(len(username) <= 0x10)
   just_username = username.ljust(0x10, "\x00")
   
-  assert(len(password) <= 0x18)
-  just_password = password.ljust(0x18, "\x00")
+  assert(len(password) <= 0x21)
+  just_password = password.ljust(0x21, "\x00")
 
   cleartext = (just_mac + just_username + just_password).ljust(0x70, '\x00')
   md5_key = MD5.new(cleartext).digest()
