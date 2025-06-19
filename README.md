@@ -41,4 +41,4 @@ This script is based on the original 'telnetenable.py' by Paul Gebheim - origina
 ## Changelog
 
 - Modified to work with newer Netgear routers (R7000, R7500) by insanid
-- Translated from the C source available from: http://wiki.openwrt.org/toh/netgear/telnet.console
+- Translated from the C source available from: [http://wiki.openwrt.org/toh/netgear/telnet.console](https://web.archive.org/web/20160310202631/http://wiki.openwrt.org/toh/netgear/telnet.console)
